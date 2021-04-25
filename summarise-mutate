@@ -1,0 +1,21 @@
+#plyr summarise mutate函数学习
+
+library(plyr)
+set.seed(1)
+
+dfx <- data.frame(
+  group = c(rep('A', 8), rep('B', 15), rep('C', 6)),
+  sex = sample(c("M", "F"), size = 29, replace = TRUE),
+  age = sample(20:30, size = 29, replace = TRUE),
+  worktime = sample(1:5, size = 29, replace = TRUE)
+)
+
+dfx
+
+summarise(dfx,mean.age=mean(age),sd.age=sd(age))
+
+mutate(dfx,mean.age=mean(age),sd.age=sd(age))
+View(dfx)
+
+summarise(dfx,age=age+10)
+mutate(dfx,age=age+1)
